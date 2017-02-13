@@ -1,0 +1,22 @@
+
+"comment not work with map lines, on newline instead
+map <space> viw
+
+
+imap <c-d> dd
+imap <c-d> <esc>ddi
+cut this lineddddddddddddddddddddddddddddd njininiV
+
+
+leader key
+let mapleader = ','
+let maplocalleader = '\\'
+
+"enclosing word with " "
+nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
+vnoremap <leader>+ `<"`>"p
+
+force yourself to use map by disabling the old keys
+inoremap <esc> <nop> 
+
+aa(sfs)df)dsf

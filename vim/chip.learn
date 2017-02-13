@@ -1,0 +1,5 @@
+if "aaa"
+	echom "foo"
+endif
+
+not echo "foo"  strings not preceded by digits  equals zero
