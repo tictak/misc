@@ -17,16 +17,26 @@ def dec_arg(arg):
                         result = func(*args)
                         print "arg %s" %(arg)
                         return result
-                return wrap
                 print "EEE"
                 test_f1("FFFFF")
+                return wrap
         return dec
+
+def dec_arg1(arg):
+        def dec(func):
+                print arg
+                def final(*args):
+                        func(*args)
+                return final
+        return dec
+
 
 @decorator1
 def test_f1(name):
         print name
         return None
 
+@dec_arg1("JJJ")
 @dec_arg("HHH")
 def test_f2(name):
         print name

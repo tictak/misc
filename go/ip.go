@@ -2,18 +2,25 @@ package main
 
 import (
 	"encoding/binary"
-
 	"fmt"
 	"net"
+	"os"
 	"strconv"
 	"strings"
 )
 
 func main() {
-	cidr := "118.190.0.0/15"
-	fmt.Println(CIDR(cidr))
-	cidr = "118.190.0.0/16"
-	fmt.Println(CIDR(cidr))
+	if len(os.Args) != 3 {
+		fmt.Fprintf(os.Stderr, "Usage %s 1.1.1.0/24 12", os.Args[0])
+		os.Exit(1)
+	}
+	start, end, net, mask, err := CIDR(os.Args[1])
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "%s: %s", os.Args[1], err)
+		os.Exit(1)
+	}
+
+	fmt.Printf("('%s','%s','%s',%d,%s)\n", start, end, net, mask, os.Args[2])
 }
 
 func CIDR(s string) (ipstart, ipend, ipnet string, mask uint, err error) {

@@ -11,4 +11,8 @@ func main() {
 	d := net.Dialer{LocalAddr: laddr}
 	conn, err := d.Dial("tcp", os.Args[2]+":80")
 	fmt.Println(conn, err)
+	b := make([]byte, 1000000)
+	conn.Read(b)
+	fmt.Println(b)
+
 }

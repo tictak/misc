@@ -1,11 +1,12 @@
+set -x
 for arg in "$@"
 do
 	[ -z $clear ] && set --  && clear=yes
 	case "$arg" in
-		--help)    shortargs="$shortargs -h" ;;
+		--help)    set -- "$@" -h ;;
 		--verbose) set -- "$@" -v ;;
 		--config)  set -- "$@" -c ;;
-		--file*)    set -- "$@" -f ${arg#--file=};;
+		--file*)   set -- "$@" -f ${arg#--file=};;
 		*)         set -- "$@" "$arg" ;;
 	esac
 done

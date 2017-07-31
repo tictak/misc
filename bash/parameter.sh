@@ -1,3 +1,8 @@
+
+echo ${BASH_SOURCE}
+echo $0
+dirname `readlink -f "$0"`
+
 a=b
 b=c
 
